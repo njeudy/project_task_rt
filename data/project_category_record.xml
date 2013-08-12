@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="project_category_support_r0" model="project.category">
+      <field name="name">Support</field>
+      <field name="active" eval="True"/>
+      <!-- one2many field 'child_ids' managed on the res.partner.category side -->
+      <field name="parent_id" ref="project_task_rt.project_category_rt_r0"/>
+    </record>
+    <record id="project_category_rt_r0" model="project.category">
+      <field name="name">RT</field>
+      <field name="active" eval="True"/>
+      <!-- one2many field 'child_ids' managed on the res.partner.category side -->
+    </record>
+  </data>
+</openerp>
