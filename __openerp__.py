@@ -18,6 +18,7 @@ A task with a ``support`` tag is a bug report or a customer request by default.
     "depends": [
         'base',
         'project',
+        'project_task_number',
         'project_issue',
     ],
     "author": "Nicolas JEUDY <njeudy@tuxservices.com>",
@@ -25,6 +26,7 @@ A task with a ``support`` tag is a bug report or a customer request by default.
     "active" : False,
     "data": [
         'data/project_category_record.xml',
+        'ir_ui_view_record.xml',
     ],
 }
 

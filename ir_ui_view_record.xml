@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="ir_ui_view_new_project_task_rt_inherit_r0" model="ir.ui.view">
+      <field name="name">project.task.rt.inherit</field>
+      <field name="arch" type="xml">
+        <data>
+          <field name="ref" position="replace"/>
+          <field name="name" position="replace">
+            <div class="action-panel label-inverse"><field name="subtype" class="oe_inline" readonly="1"/>: <field name="ref" class="oe_inline" readonly="1"/></div>
+            <field name="name"/>
+          </field>
+          <field name="user_id" position="after">
+            <field name="partner_id" string="Reporter" attrs="{'invisible': [('subtype','!=','request')]}"/>
+          </field>
+        </data>
+      </field>
+      <field name="inherit_id" ref="project.view_task_form2"/>
+      <field name="model">project.task</field>
+      <field name="priority">99</field>
+    </record>
+  </data>
+</openerp>

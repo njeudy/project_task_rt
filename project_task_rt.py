@@ -59,6 +59,7 @@ class project_task_request(osv.Model):
         'task_id': fields.many2one('project.task', required=True,
                                    string='Related Task', ondelete='cascade',
                                    help='Task-related data of the request'),
+        'partner_id': fields.many2one('res.partner', 'Asked By:'),
     }
 
     def write(self, cr, uid, ids, values, context=None):
@@ -117,8 +118,6 @@ class project_task_request(osv.Model):
             'user_id': False,
             'categ_ids': [(6,0,[support_categ.id])],
         }
-
-
 
         if msg.get('priority'):
             defaults['priority'] = msg.get('priority')
