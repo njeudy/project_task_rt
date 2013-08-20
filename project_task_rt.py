@@ -170,11 +170,14 @@ class project_task_request(osv.Model):
             context = {}
 
         task_obj = self.pool.get('project.task')
-        current_request = self.pool.get('project.task.request').browse(cr,uid,thread_id,context=context)[0]
-        
-        # update request email title to handle correct one
-        new_subject = '[Support: %s] %s' %  (current_request.ref,current_request.name)
-
+	if thread_id:
+        	current_request = self.pool.get('project.task.request').browse(cr,uid,thread_id,context=context)
+		if isinstance(current_request, (list)):
+			current_request = current_request[0]
+        	# update request email title to handle correct one
+        	new_subject = '[Support: %s] %s' %  (current_request.ref,current_request.name)
+	else:
+		new_subject = subject
         # project_task_request model exist to handle special field value and automation for task with
         # subtype = 'request'. All chatter activity should appear on project_task model
 
