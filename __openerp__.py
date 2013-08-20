@@ -10,9 +10,18 @@ This is a new module that use task inheritance to process requests (issues)
 for customer ask or project developpment bug report.
 
 Issue is not a new model but an inherited task that as some new field and 
-process incoming email a different way.
+process incoming email a different way. the new model project.task.rt is an
+Abstract class to only have a hook form incoming email and set default task value
 
 A task with a ``support`` tag is a bug report or a customer request by default.
+
+This module add an new subtype field for task to handle different type of task.
+
+External dependecies
+--------------------
+
+- project_task_number: Add a ``ref`` fields.sequence to task
+
 """,
     "version": "0.1",
     "depends": [
