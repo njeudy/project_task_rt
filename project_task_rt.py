@@ -59,15 +59,18 @@ class project_task_request(osv.Model):
         'task_id': fields.many2one('project.task', required=True,
                                    string='Related Task', ondelete='cascade',
                                    help='Task-related data of the request'),
-        'partner_id': fields.many2one('res.partner', 'Asked By:'),
     }
 
     def write(self, cr, uid, ids, values, context=None):
         if not hasattr(ids, '__iter__'):
             ids = [ids]
-        
+        m  = self.pool.get('ir.model.data')
+        support_categ = m.get_object(cr, uid, 'project_task_rt', 'project_category_support_r0')
+
         values['subtype'] = 'request'
         values['color'] = 7
+        values['categ_ids'] = [(6,0,[support_categ.id])]
+        
         res = super(project_task_request, self).write(cr, uid, ids, values, context=context)
 
     # -------------------------------------------------------
@@ -209,6 +212,7 @@ class task(osv.Model):
     _inherit = 'project.task'
 
     _columns = {
+        'implement': fields.text('Implement'),
         'date_action_last': fields.datetime('Last Action', readonly=1),
         'subtype': fields.selection(_TASK_SUBTYPE, 'SubType of the task', required=True,
                         help="Fine tune type of task to handle mail_thread and automatic actions "),
@@ -216,4 +220,5 @@ class task(osv.Model):
 
     _defaults = {
         'subtype': 'task',
+        'date_start': lambda *a: time.strftime('%Y-%m-%d %H:%M:%S'),
     }
