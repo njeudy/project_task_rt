@@ -61,6 +61,15 @@ class project_task_request(osv.Model):
                                    help='Task-related data of the request'),
     }
 
+    def onchange_contact(self, cr, uid, id, contact_id):
+        if not contact_id:
+            return {}
+        data = self.pool.get('res.partner').browse(cr, uid, [contact_id])
+        partner_id=data and data[0].parent_id
+        if partner_id:
+            return {'value':{'partner_id':partner_id.id}}
+        return {}
+
     def write(self, cr, uid, ids, values, context=None):
         if not hasattr(ids, '__iter__'):
             ids = [ids]
@@ -70,7 +79,7 @@ class project_task_request(osv.Model):
         values['subtype'] = 'request'
         values['color'] = 7
         values['categ_ids'] = [(6,0,[support_categ.id])]
-        
+
         res = super(project_task_request, self).write(cr, uid, ids, values, context=context)
 
     # -------------------------------------------------------
@@ -117,7 +126,7 @@ class project_task_request(osv.Model):
             'name':  msg.get('subject') or _("No Subject"),
             'email_from': msg.get('from'),
             'email_cc': msg.get('cc'),
-            'partner_id': msg.get('author_id', False),
+            'contact_id': msg.get('author_id', False),
             'user_id': False,
             'categ_ids': [(6,0,[support_categ.id])],
         }
@@ -216,6 +225,8 @@ class task(osv.Model):
         'date_action_last': fields.datetime('Last Action', readonly=1),
         'subtype': fields.selection(_TASK_SUBTYPE, 'SubType of the task', required=True,
                         help="Fine tune type of task to handle mail_thread and automatic actions "),
+        'contact_id': fields.many2one('res.partner', required=False,
+                                   string='Reporter', help='Reporter of of the request'),
     }
 
     _defaults = {
