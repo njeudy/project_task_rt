@@ -40,6 +40,8 @@ External dependecies
         'ir_actions_act_window_record.xml',
         'ir_actions_act_window_view_record.xml',
         'ir_ui_menu_record.xml',
+        'security/request_security.xml',
+        'security/ir.model.access.csv',
     ],
 }
 
