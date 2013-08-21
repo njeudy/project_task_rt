@@ -27,6 +27,7 @@ External dependecies
     "depends": [
         'base',
         'project',
+	'project_timesheet',
         'project_task_number',
         'project_issue',
     ],
