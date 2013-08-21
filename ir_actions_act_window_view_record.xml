@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="ir_actions_act_window_view_new_crer_un_ticket_r0" model="ir.actions.act_window.view">
+      <field name="sequence">0</field>
+      <field name="act_window_id" ref="project_task_rt.ir_actions_act_window_new_crer_un_ticket_r0"/>
+      <field name="multi" eval="False"/>
+      <field name="view_id" ref="project_task_rt.view_task_rt_form"/>
+      <field name="view_mode">form</field>
+    </record>
+  </data>
+</openerp>

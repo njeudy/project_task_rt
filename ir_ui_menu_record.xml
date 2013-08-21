@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <menuitem id="ir_ui_menu_new_crer_un_ticket_r0" name="Créer un ticket" parent="project.menu_project_management" sequence="10" action="project_task_rt.ir_actions_act_window_new_crer_un_ticket_r0"/>
+  </data>
+</openerp>
