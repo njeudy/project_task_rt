@@ -14,7 +14,7 @@
             <field name="name"/>
           </field>
           <field name="user_id" position="after">
-            <field name="contact_id" string="Reporter" attrs="{'invisible': [('subtype','!=','request')]}"/>
+            <field name="contact_id" string="Reporter"/>
           </field>
           <field name="description" position="replace">
             <separator string="Description"/>
