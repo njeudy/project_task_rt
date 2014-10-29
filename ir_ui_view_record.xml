@@ -6,8 +6,6 @@
       <field name="arch" type="xml">
         <data>
           <field name="ref" position="replace"/>
-          <field name="timebox_id" position="replace"/>
-          <field name="context_id" position="replace"/>
 
           <field name="name" position="replace">
             <div class="action-panel label-inverse"><field name="subtype" class="oe_inline" readonly="1"/>: <field name="ref" class="oe_inline" readonly="1"/></div>
@@ -43,7 +41,7 @@
                     </h1>
                     <group>
                         
-                        <field name="contact_id" string="Reporter" on_change="onchange_contact(contact_id)" class="oe_inline"/>(<field name="partner_id" class="oe_inline" readonly="1"/>)
+                        <field name="contact_id" string="Reporter" on_change="onchange_contact(contact_id)" class="oe_inline"/>(<field name="partner_id" class="oe_inline"/>)
                         <field name="project_id" domain="[('partner_id','=',partner_id)]" context="{'default_use_tasks':1}" options='{"no_open": True}'/>
                         <field name="user_id" options='{"no_open": True}'/>
                         <field name="categ_ids" widget="many2many_tags"/>

@@ -29,7 +29,6 @@ External dependecies
         'project',
 	'project_timesheet',
         'project_task_number',
-        'project_issue',
     ],
     "author": "Nicolas JEUDY <njeudy@tuxservices.com>",
     "installable" : True,
