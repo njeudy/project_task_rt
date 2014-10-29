@@ -159,7 +159,6 @@ class project_task_request(osv.Model):
             'probability': 'probability',
         }
 
-        import pdb; pdb.set_trace()
         for line in msg.get('body', '').split('\n'):
             line = line.strip()
             res = tools.command_re.match(line)
