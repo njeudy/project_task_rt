@@ -9,7 +9,7 @@ Project Task Request Tracker (project_task_rt)
 This is a new module that use task inheritance to process requests (issues)
 for customer ask or project developpment bug report.
 
-Issue is not a new model but an inherited task that as some new field and 
+Issue is not a new model but an inherited task that as some new field and
 process incoming email a different way. the new model project.task.rt is an
 Abstract class to only have a hook form incoming email and set default task value
 
@@ -27,7 +27,8 @@ External dependecies
     "depends": [
         'base',
         'project',
-	'project_timesheet',
+        'web_widget_text_markdown',
+        'project_timesheet',
         'project_task_number',
     ],
     "author": "Nicolas JEUDY <njeudy@tuxservices.com>",

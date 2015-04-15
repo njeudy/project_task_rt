@@ -16,9 +16,9 @@
           </field>
           <field name="description" position="replace">
             <separator string="Description"/>
-            <field name="description" widget="markitup"/>
+            <field name="description" widget="bootstrap_markdown"/>
             <separator string="Implementation"/>
-            <field name="implement" widget="markitup"/>
+            <field name="implement" widget="bootstrap_markdown"/>
           </field>
         </data>
       </field>
@@ -46,7 +46,7 @@
                         <field name="user_id" options='{"no_open": True}'/>
                         <field name="categ_ids" widget="many2many_tags"/>
                     </group>
-                    <field name="description" placeholder="Add a Description..." widget="markitup"/>
+                    <field name="description" placeholder="Add a Description..." widget="bootstrap_markdown"/>
                     </sheet>
                 </form>
             </field>
